@@ -1,0 +1,746 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<title>Thiệp mời tham dự lễ tốt nghiệp</title>
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="description" content="Thân mời bạn đến chung vui cùng mình!">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700&family=Playfair+Display:ital,wght@1,500;1,700&family=Taviraj:wght@300;400;500;600;700&family=Trirong:wght@400;600&family=Montserrat:wght@400;500;600&display=swap" rel="stylesheet">
+
+<!--
+========================================================================
+  CẤU HÌNH (CONFIG) — CHỈ CẦN SỬA Ở ĐÂY LÀ TOÀN BỘ TRANG SẼ CẬP NHẬT
+  Xem hướng dẫn chi tiết trong file HUONG_DAN.md đi kèm.
+========================================================================
+-->
+<script>
+window.CONFIG = {
+
+  // ----- 1. VĂN BẢN CHÍNH -----
+ texts: {
+    pageTitle: "Thiệp mời tham dự lễ tốt nghiệp",
+    heroLine1: "The life is go on",
+    heroLine2: "and so i....",
+    badgeLine1: "GRADUATION",
+    badgeLine2: "CEREMONY",
+    guestScriptName: "Tên của bạn",      // tên hiển thị kiểu chữ ký (script font)
+
+    // tên trường hiển thị cạnh logo, đầu trang (3 dòng, để trống dòng nào thì ẩn dòng đó)
+    schoolNameLine1: "",                    // dòng nhỏ trên cùng (bộ chủ quản, nếu có)
+    schoolNameLine2: "ĐẠI HỌC KINH TẾ QUỐC DÂN",        // dòng chính, đậm
+    schoolNameLine3: "NATIONAL ECONOMICS UNIVERSITY", // dòng phụ (tên tiếng Anh), có thể để trống
+
+    greeting: "Thân mời",
+    day: "22",
+    month: "THÁNG 08",
+    year: "NĂM 2026",
+    time: "9H:00, Thứ Bảy",
+    locationLabel: "Tại địa điểm:",
+    locationName: "TÒA A2 - ĐẠI HỌC KINH TẾ QUỐC DÂN",
+    locationAddress: "207 Đ. Giải Phóng, Bạch Mai, Hà Nội, Việt Nam",
+    directionButtonText: "CHỖ NÀY NÀY",
+    sectionTitle1: "Thanh xuân",
+    sectionTitle2: "của chúng ta",
+    quote: "Đây là đoạn kết của của một chặng hành trình của mình. Và mình tin rằng, nó sẽ đẹp hơn nếu có sự xuất hiện của BẠN.",
+    quoteSignature: "Phương Nam",
+    sectionTagline: "The chapter ends here, but the story is only just beginning.",
+    rsvpPrompt: "Vui lòng xác nhận sự tham dự của bạn để mình chuẩn bị đón tiếp một cách chu đáo nhất.<br>Trân trọng cảm ơn!",
+    thankYouBig: "Thanh you!",
+    popupTitle: "Cảm ơn bạn đã dành thời gian phản hồi",
+    popupSub: ""
+  },
+
+  // ----- 2. ẢNH (dán link ảnh của bạn vào đây) -----
+  // Gợi ý nơi lưu ảnh: Google Drive (đặt public), imgur.com, hoặc host cùng thư mục với file này.
+  // Ảnh mặc định bên dưới chỉ là placeholder (khung xám) để bạn xem trước bố cục.
+  images: {
+    // logo/huy hiệu trường (ảnh vuông/tròn) — để trống ("") nếu không có, chỉ hiện tên trường
+    schoolLogo:    "https://drive.google.com/file/d/1pnjbj4xndHCYj0Iz56DD8Di52TE4H7pZ/view?usp=drive_link",
+
+    heroPortrait:  "https://drive.google.com/file/d/1vMxtZsoUXWWpLOTayUl0aXgjlzMTMoeG/view?usp=drive_link",
+    wideBanner:    "https://drive.google.com/file/d/1V9cYq4ikzcoXRTxg6xl75TQ2AqgBaidn/view?usp=drive_link",
+    quoteSignatureImg: "", // để trống nếu không dùng ảnh chữ ký
+
+    popupBg: "https://drive.google.com/file/d/1ei2dXLOr0c76w00MU0i7hcQ9nXbC9oKa/view?usp=drive_link",
+    thankYouBg: "https://drive.google.com/file/d/1mTUfvtd9avEPiTIthvjTEmcwQv5JsT4j/view?usp=drive_link"
+  },
+
+  // ----- 3. ĐỊA ĐIỂM (nút "xem chỉ đường") -----
+  location: {
+    // Cách lấy link: mở Google Maps > tìm địa điểm > Chia sẻ > Sao chép liên kết
+    mapUrl: "https://www.google.com/maps/place/Tr%C6%B0%E1%BB%9Dng+%C4%90%E1%BA%A1i+H%E1%BB%8Dc+Kinh+T%E1%BA%BF+Qu%E1%BB%91c+D%C3%A2n+(NEU)/@21.0000942,105.832972,1711m/data=!3m1!1e3!4m10!1m2!2m1!1zxJDhuqBJIEjhu4xDIGtpbmggdOG6vyBxdeG7kWMgZMOibg!3m6!1s0x3135ac71752d8f79:0xd2ec575c01017afa!8m2!3d21.0000942!4d105.8424992!15sCiLEkOG6oEkgSOG7jEMga2luaCB04bq_IHF14buRYyBkw6JuIgOIAQFaJCIixJHhuqFpIGjhu41jIGtpbmggdOG6vyBxdeG7kWMgZMOibpIBEXB1YmxpY191bml2ZXJzaXR5mgFEQ2k5RFFVbFJRVU52WkVOb2RIbGpSamx2VDJ4Q2JWUXdVbWxQVmtGNVlUQlpNbU5JVW5wVGJHeHJXSHBHVmxwdVl4QULgAQD6AQQIABA-!16s%2Fm%2F0bwj_9k!5m1!1e1?entry=ttu&g_ep=EgoyMDI2MDgxMi4wIKXMDSoASAFQAw%3D%3D"
+  },
+
+  // ----- 4. NHẠC NỀN -----
+  music: {
+    // dán link file mp3 công khai vào đây, ví dụ 1-2 bài để tự chuyển tiếp
+    tracks: [
+      // "https://example.com/nhac-cua-ban.mp3"
+    ],
+    volume: 0.6
+  },
+
+  // ----- 5. TRANG TRÍ (tuỳ chọn, không bắt buộc) -----
+  decor: {
+    enablePetals: true,
+    petalEmoji: "🌸"
+  },
+
+  // ----- 6. RSVP — nơi ghi nhận xác nhận tham dự -----
+  // Dán URL Web App của Google Apps Script (xem HUONG_DAN.md) vào đây.
+  rsvp: {
+    scriptUrl: "https://script.google.com/macros/s/AKfycbzJE3zURjnvdvaoFTrMX3sWYVrPCYhIXyNHJtV-Umc2AFWhcvbCzIVUSOGeZBNNko4/exec" // ví dụ: "https://script.google.com/macros/s/xxxxxxxx/exec"
+  }
+};
+</script>
+
+<style>
+:root{
+  --navy:#010e52;
+  --grey-blue:#9b9eac;
+  --card-bg:#ffffff;
+  --page-bg:#eef0f3;
+  --shadow: rgba(1,14,82,0.18);
+  --max-w:440px;
+  --radius-lg:26px;
+  --radius-md:16px;
+  --font-body:'Taviraj', serif;
+  --font-badge:'Cinzel Decorative', serif;
+  --font-script:'Playfair Display', serif;
+  --font-btn:'Trirong', serif;
+  /* nền viền ngoài khi xem trên màn hình rộng (2 bên page-wrap) — xám nhạt trung tính, không lệch xanh */
+  --bg-texture:
+    radial-gradient(ellipse 60% 30% at 15% 8%, rgba(255,255,255,0.6), transparent 60%),
+    radial-gradient(ellipse 55% 30% at 85% 12%, rgba(255,255,255,0.4), transparent 62%),
+    linear-gradient(165deg, #f2f3f5 0%, #eef0f3 50%, #e9ebee 100%);
+  /* nền "lụa" nếp gấp trắng/xám nhạt — chỉ dùng riêng cho khối hero, mô phỏng đúng bản gốc */
+  --hero-silk:
+    repeating-linear-gradient(23deg,
+      rgba(255,255,255,0.85) 0px,
+      rgba(255,255,255,0.85) 60px,
+      rgba(199,203,213,0.55) 150px,
+      rgba(255,255,255,0.9) 260px,
+      rgba(188,193,205,0.5) 340px,
+      rgba(255,255,255,0.8) 460px
+    ),
+    radial-gradient(ellipse 65% 42% at 10% 6%, rgba(255,255,255,0.9), transparent 62%),
+    radial-gradient(ellipse 55% 36% at 92% 18%, rgba(255,255,255,0.6), transparent 65%),
+    linear-gradient(175deg, #fbfbfc 0%, #eef0f3 100%);
+}
+*{box-sizing:border-box; margin:0; padding:0;}
+html,body{ background:var(--page-bg); background-image:var(--bg-texture); background-attachment:fixed; }
+body{
+  font-family:var(--font-body);
+  color:var(--navy);
+  -webkit-font-smoothing:antialiased;
+  overflow-x:hidden;
+}
+a{color:inherit; text-decoration:none;}
+img{display:block; max-width:100%;}
+.page-wrap{
+  max-width:var(--max-w);
+  margin:0 auto;
+  background-color:var(--page-bg);
+  position:relative;
+  overflow:hidden;
+  box-shadow:0 0 40px rgba(1,14,82,0.12);
+}
+.section{ position:relative; padding:0 0 56px; }
+.section.no-pad-bottom{ padding-bottom:0; }
+
+/* ---------- reveal-on-scroll (giống hiệu ứng fadeIn... của bản gốc) ---------- */
+.reveal{ opacity:0; }
+.reveal.in-view{ animation-fill-mode:both; animation-duration:0.9s; }
+.reveal.in-view[data-anim="fadeInUp"]{ animation-name:fadeInUp; }
+.reveal.in-view[data-anim="fadeInDown"]{ animation-name:fadeInDown; }
+.reveal.in-view[data-anim="fadeInLeft"]{ animation-name:fadeInLeft; }
+.reveal.in-view[data-anim="fadeInRight"]{ animation-name:fadeInRight; }
+.reveal.in-view[data-anim="fadeIn"]{ animation-name:fadeIn; }
+.reveal.in-view[data-anim="flipInY"]{ animation-name:flipInY; }
+@keyframes fadeInDown{0%{opacity:0;transform:translateY(-20px);}100%{opacity:1;transform:translateY(0);}}
+@keyframes fadeInUp{0%{opacity:0;transform:translateY(24px);}100%{opacity:1;transform:translateY(0);}}
+@keyframes fadeInLeft{0%{opacity:0;transform:translateX(-24px);}100%{opacity:1;transform:translateX(0);}}
+@keyframes fadeInRight{0%{opacity:0;transform:translateX(24px);}100%{opacity:1;transform:translateX(0);}}
+@keyframes fadeIn{0%{opacity:0;}100%{opacity:1;}}
+@keyframes flipInY{0%{opacity:0;transform:perspective(600px) rotateY(90deg);}60%{transform:perspective(600px) rotateY(-8deg);}100%{opacity:1;transform:perspective(600px) rotateY(0);}}
+@keyframes pulse{0%{transform:scale(1);}50%{transform:scale(1.06);}100%{transform:scale(1);}}
+
+/* ---------- HERO ---------- */
+.hero{
+  padding-top:36px; text-align:center; position:relative;
+  background-image:var(--hero-silk);
+  background-repeat:no-repeat;
+}
+
+/* logo / huy hiệu trường + tên trường */
+.school-logo{
+  display:inline-flex; align-items:center; gap:12px; margin:0 auto 18px; max-width:320px; text-align:left;
+}
+.school-logo .logo-img{ width:52px; height:52px; flex:0 0 auto; border-radius:50%; overflow:hidden; box-shadow:0 4px 12px -4px var(--shadow); }
+.school-logo .logo-img img{ width:100%; height:100%; object-fit:cover; display:block; }
+.school-logo .school-name{ display:flex; flex-direction:column; gap:1px; }
+.school-logo .school-name span{ display:block; }
+.school-logo .sn-line1{ font-family:'Montserrat',sans-serif; font-weight:600; font-size:10px; letter-spacing:0.5px; color:#b3242f; text-transform:uppercase; }
+.school-logo .sn-line2{ font-family:'Montserrat',sans-serif; font-weight:700; font-size:14px; letter-spacing:0.3px; color:var(--navy); text-transform:uppercase; line-height:1.25; }
+.school-logo .sn-line3{ font-family:'Montserrat',sans-serif; font-weight:500; font-size:8.5px; letter-spacing:0.8px; color:var(--grey-blue); text-transform:uppercase; }
+.school-logo.no-logo-img .logo-img{ display:none; }
+.school-logo.no-name .school-name{ display:none; }
+
+.hero-badge-pill{
+  display:inline-flex; flex-direction:column; align-items:center; gap:2px;
+  padding:10px 26px; margin-bottom:22px;
+}
+.hero-badge-pill h1{
+  font-family:var(--font-badge);
+  font-size:26px; letter-spacing:2px; color:var(--navy); line-height:1.3;
+}
+.hero-badge-pill h1.line2{ font-size:20px; }
+
+.hero-photo-wrap{ position:relative; width:calc(100% - 64px); margin:0 auto 26px; }
+.hero-photo{
+  width:100%; aspect-ratio:3/4; border-radius:var(--radius-lg);
+  overflow:hidden; box-shadow:0 18px 34px -18px var(--shadow);
+}
+.hero-photo img{ width:100%; height:100%; object-fit:cover; }
+
+.hero-quote p{
+  font-family:var(--font-script); font-style:italic; font-size:19px; color:var(--grey-blue); line-height:1.6;
+}
+.hero-quote{ margin-bottom:10px; }
+
+/* ---------- decorative floating petals ---------- */
+.petals-host{ position:absolute; inset:0; pointer-events:none; overflow:hidden; z-index:2; }
+.petal{ position:absolute; top:-30px; font-size:18px; opacity:0.85; animation:petalFall linear forwards; }
+@keyframes petalFall{
+  0%{ transform:translateY(0) translateX(0) rotate(0deg); opacity:0; }
+  10%{ opacity:0.9; }
+  100%{ transform:translateY(420px) translateX(var(--drift,20px)) rotate(200deg); opacity:0; }
+}
+
+/* ---------- INVITE CARD ---------- */
+.invite-card-wrap{ padding:0 24px; margin-top:8px; }
+.invite-card{
+  background:#fff; border-radius:var(--radius-lg);
+  box-shadow:0 20px 40px -22px var(--shadow);
+  padding:34px 26px 30px; text-align:center;
+}
+.invite-card .script-name{
+  font-family:var(--font-script); font-style:italic; font-weight:700; font-size:30px; color:var(--grey-blue);
+  margin-bottom:10px;
+}
+.invite-card .greeting{
+  font-family:'Taviraj',serif; text-transform:uppercase; letter-spacing:2px; font-size:15px; margin-bottom:26px;
+}
+.date-row{ display:flex; align-items:center; justify-content:center; gap:18px; margin-bottom:18px; }
+.date-day{ font-family:'Trirong',serif; font-weight:700; font-size:44px; letter-spacing:1px; }
+.date-my{ display:flex; flex-direction:column; gap:8px; }
+.date-my span{
+  font-family:'Taviraj',serif; font-size:15px; letter-spacing:1px; text-transform:uppercase;
+  padding:6px 0; border-top:1px solid var(--navy); border-bottom:1px solid var(--navy);
+}
+.time-text{ font-family:'Taviraj',serif; font-size:17px; letter-spacing:0.5px; margin-bottom:22px; }
+.loc-label{ font-size:12px; letter-spacing:1px; color:var(--grey-blue); margin-bottom:6px; }
+.loc-name{ font-family:'Taviraj',serif; font-size:19px; text-transform:uppercase; line-height:1.3; margin-bottom:8px; }
+.loc-address{ font-family:'Taviraj',serif; font-size:13px; margin-bottom:20px; }
+.direction-btn{
+  display:inline-flex; align-items:center; gap:8px; margin:0 auto;
+  font-family:'Taviraj',serif; text-transform:uppercase; font-size:13px; letter-spacing:1px;
+  animation:pulse 1.6s infinite;
+}
+.direction-btn svg{ width:13px; height:auto; fill:var(--navy); }
+
+/* ---------- wide photo banner ---------- */
+.wide-photo{ margin-top:40px; width:100%; aspect-ratio:4/3; overflow:hidden; }
+.wide-photo img{ width:100%; height:100%; object-fit:cover; }
+
+/* ---------- section titles ---------- */
+.section-title{ text-align:center; padding:40px 24px 6px; }
+.section-title h2{
+  font-family:var(--font-script); font-style:italic; font-size:38px; color:var(--navy); line-height:1.15;
+}
+.section-title h3{
+  font-family:var(--font-script); font-style:italic; font-size:24px; color:var(--grey-blue); margin-top:4px;
+}
+
+/* ---------- quote card ---------- */
+.quote-card-wrap{ padding:22px 24px 10px; }
+.quote-card{
+  background:#fff; border-radius:var(--radius-lg); box-shadow:0 20px 40px -24px var(--shadow);
+  padding:30px 24px; position:relative;
+}
+.quote-card p{ font-family:'Taviraj',serif; font-size:14px; line-height:1.9; text-align:left; }
+.quote-signature{ margin-top:18px; text-align:right; font-family:var(--font-script); font-style:italic; font-size:26px; color:var(--grey-blue); }
+.quote-signature img{ max-width:160px; margin-left:auto; }
+
+.section-tagline{ text-align:center; padding:34px 24px; }
+.section-tagline h2{ font-family:var(--font-script); font-style:italic; font-size:22px; color:var(--navy); }
+
+/* ---------- rsvp ---------- */
+.rsvp-section{ padding:40px 24px 10px; text-align:center; }
+.rsvp-prompt{ font-family:'Taviraj',serif; font-size:14px; line-height:1.8; margin-bottom:22px; }
+.rsvp-form{ display:flex; flex-direction:column; gap:12px; text-align:left; }
+.rsvp-form input, .rsvp-form textarea, .rsvp-form select{
+  width:100%; border:1px solid var(--navy); border-radius:22px; padding:12px 18px;
+  font-family:'Taviraj',serif; font-size:14px; color:var(--navy); background:transparent;
+}
+.rsvp-form textarea{ border-radius:18px; min-height:70px; resize:none; }
+.rsvp-form select{ appearance:none; background-image:url("data:image/svg+xml;utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='10'%3E%3Cpolygon points='0,0 14,0 7,10' fill='%23010e52'/%3E%3C/svg%3E"); background-repeat:no-repeat; background-position:right 16px center; }
+.rsvp-submit{
+  margin-top:6px; border:1px solid var(--navy); background:var(--navy); color:#fff;
+  font-family:var(--font-btn); font-size:17px; letter-spacing:1px; padding:12px; border-radius:22px; cursor:pointer;
+  transition:opacity .2s;
+}
+.rsvp-submit:disabled{ opacity:0.55; cursor:default; }
+.rsvp-note{ font-size:12px; color:#b23; margin-top:8px; display:none; }
+
+.thankyou-banner{ position:relative; margin-top:36px; aspect-ratio:16/8; overflow:hidden; }
+.thankyou-banner img{ width:100%; height:100%; object-fit:cover; }
+.thankyou-banner h2{
+  position:absolute; inset:0; display:flex; align-items:center; justify-content:center;
+  font-family:var(--font-script); font-style:italic; font-size:36px; color:#fffbf0; text-shadow:0 2px 12px rgba(0,0,0,0.35);
+}
+
+/* ---------- popup ---------- */
+.popup-overlay{
+  position:fixed; inset:0; background:rgba(0,0,0,0.5); z-index:9000; display:none;
+  align-items:center; justify-content:center; padding:20px;
+}
+.popup-overlay.show{ display:flex; }
+.popup-card{
+  width:100%; max-width:380px; background:#fff; border-radius:20px; overflow:hidden; position:relative;
+  text-align:center; box-shadow:0 20px 50px rgba(0,0,0,0.3);
+}
+.popup-card .popup-img{ width:100%; aspect-ratio:16/10; overflow:hidden; }
+.popup-card .popup-img img{ width:100%; height:100%; object-fit:cover; }
+.popup-card .popup-text{ padding:22px 20px 26px; }
+.popup-card .popup-text p:first-child{ font-family:'Taviraj',serif; font-size:14px; color:#466a7f; margin-bottom:8px; }
+.popup-card .popup-text p:last-child{ font-family:var(--font-script); font-style:italic; font-size:26px; color:#466a7f; }
+.popup-close{ position:absolute; top:10px; right:12px; width:28px; height:28px; border:none; background:rgba(255,255,255,0.85); border-radius:50%; font-size:18px; cursor:pointer; z-index:2; }
+
+/* ---------- music button ---------- */
+#music-toggle{
+  position:fixed; bottom:20px; right:20px; width:54px; height:54px; border:none; border-radius:50%;
+  background:linear-gradient(135deg, rgba(248,248,252,0.97), rgba(238,240,247,0.97));
+  display:flex; align-items:center; justify-content:center; z-index:9999; cursor:pointer;
+  box-shadow:0 8px 22px rgba(1,14,82,0.2), inset 0 0 0 1px rgba(80,88,130,0.42);
+  transition:all .28s ease;
+}
+#music-toggle:hover{ transform:translateY(-3px) scale(1.03); }
+#music-icon{ width:29px; height:29px; color:#20284f; }
+#music-slash{ position:absolute; width:34px; height:2.6px; background:linear-gradient(90deg,#737895,#20284f); border-radius:20px; transform:rotate(45deg); }
+#music-toggle.playing #music-slash{ opacity:0; }
+#music-toggle.playing #music-icon{ animation:spin 4.2s linear infinite; color:#141a3b; }
+@keyframes spin{ from{transform:rotate(0);} to{transform:rotate(360deg);} }
+#music-toggle.hidden{ display:none; }
+
+@media (max-width:380px){
+  .hero-photo-wrap{ width:calc(100% - 40px); }
+  .invite-card-wrap, .rsvp-section, .quote-card-wrap{ padding-left:16px; padding-right:16px; }
+}
+</style>
+</head>
+<body>
+
+<div class="page-wrap" id="pageWrap">
+
+  <!-- ============ SECTION 1: HERO ============ -->
+  <section class="section hero no-pad-bottom">
+    <div class="petals-host" id="petalsHost"></div>
+
+    <div class="school-logo reveal" data-anim="fadeInDown" id="schoolLogoWrap">
+      <div class="logo-img" id="schoolLogoImgWrap">
+        <img id="cfgSchoolLogo" alt="Logo trường" loading="lazy">
+      </div>
+      <div class="school-name">
+        <span class="sn-line1" id="cfgSchoolLine1">BỘ ...</span>
+        <span class="sn-line2" id="cfgSchoolLine2">TÊN TRƯỜNG CỦA BẠN</span>
+        <span class="sn-line3" id="cfgSchoolLine3">ENGLISH NAME</span>
+      </div>
+    </div>
+
+    <div class="hero-badge-pill reveal" data-anim="fadeInDown">
+      <h1 id="cfgBadgeLine1">GRADUATION</h1>
+      <h1 class="line2" id="cfgBadgeLine2">CEREMONY</h1>
+    </div>
+
+    <div class="hero-photo-wrap">
+      <div class="hero-photo reveal" data-anim="fadeIn">
+        <img id="cfgHeroPhoto" alt="Ảnh chân dung" loading="lazy">
+      </div>
+    </div>
+
+    <div class="hero-quote reveal" data-anim="fadeInDown">
+      <p id="cfgHeroLine1">Every end is</p>
+      <p id="cfgHeroLine2">a new beginning...</p>
+    </div>
+  </section>
+
+  <!-- ============ SECTION 2: INVITE CARD ============ -->
+  <section class="section">
+    <div class="invite-card-wrap">
+      <div class="invite-card reveal" data-anim="fadeInUp">
+        <div class="script-name" id="cfgScriptName">Tên của bạn</div>
+        <div class="greeting" id="cfgGreeting">Thân mời</div>
+
+        <div class="date-row">
+          <div class="date-day" id="cfgDay">25</div>
+          <div class="date-my">
+            <span id="cfgMonth">THÁNG 07</span>
+            <span id="cfgYear">NĂM 2026</span>
+          </div>
+        </div>
+
+        <div class="time-text" id="cfgTime">10:45, Thứ Bảy</div>
+
+        <div class="loc-label" id="cfgLocLabel">Tại địa điểm:</div>
+        <div class="loc-name" id="cfgLocName">Tên trường / hội trường</div>
+        <div class="loc-address" id="cfgLocAddress">Địa chỉ chi tiết</div>
+
+        <a href="#" target="_blank" rel="noopener" class="direction-btn" id="cfgMapLink">
+          <svg viewBox="0 0 1049.8953 1896.0833"><path d="M768 640q0-106-75-181t-181-75-181 75-75 181 75 181 181 75 181-75 75-181zm256 0q0 109-33 179l-364 774q-16 33-47.5 52t-67.5 19-67.5-19-46.5-52L33 819Q0 749 0 640q0-212 150-362t362-150 362 150 150 362z"></path></svg>
+          <span id="cfgDirectionText">xem chỉ đường</span>
+        </a>
+      </div>
+    </div>
+
+    <div class="wide-photo reveal" data-anim="fadeIn">
+      <img id="cfgWidePhoto" alt="Ảnh" loading="lazy">
+    </div>
+  </section>
+
+  <!-- ============ SECTION 3: QUOTE / STORY ============ -->
+  <section class="section">
+    <div class="section-title">
+      <h2 class="reveal" data-anim="fadeInLeft" id="cfgSectionTitle1">Thanh xuân</h2>
+      <h3 class="reveal" data-anim="fadeInRight" id="cfgSectionTitle2">Của chúng mình</h3>
+    </div>
+
+    <div class="quote-card-wrap">
+      <div class="quote-card reveal" data-anim="fadeInUp">
+        <p id="cfgQuote">Đoạn chia sẻ cảm xúc của bạn...</p>
+        <div class="quote-signature" id="cfgQuoteSignature">Tên của bạn</div>
+      </div>
+    </div>
+
+    <div class="section-tagline">
+      <h2 class="reveal" data-anim="fadeInDown" id="cfgTagline">Đi qua hoài nghi - giữ lại chính mình</h2>
+    </div>
+  </section>
+
+  <!-- ============ SECTION 4: RSVP ============ -->
+  <section class="section rsvp-section">
+    <p class="reveal" data-anim="fadeInUp" id="cfgRsvpPrompt">Vui lòng xác nhận sự tham dự...</p>
+
+    <form class="rsvp-form reveal" data-anim="fadeInUp" id="rsvpForm">
+      <input type="text" id="rsvpName" name="name" placeholder="Tên của bạn" required maxlength="80">
+      <textarea id="rsvpMessage" name="message" placeholder="Lời nhắn gửi" maxlength="500"></textarea>
+      <select id="rsvpAttendance" name="attendance" required>
+        <option value="">Xác nhận tham dự?</option>
+        <option value="Tôi sẽ tham dự">Tôi sẽ tham dự</option>
+        <option value="Xin lỗi, tôi không thể tham dự">Xin lỗi, tôi không thể tham dự</option>
+      </select>
+      <button type="submit" class="rsvp-submit" id="rsvpSubmitBtn">XÁC NHẬN</button>
+      <div class="rsvp-note" id="rsvpNote">Chưa cấu hình RSVP — xem HUONG_DAN.md để bật tính năng ghi nhận phản hồi.</div>
+    </form>
+
+    <div class="thankyou-banner">
+      <img id="cfgThankYouBg" alt="" loading="lazy">
+      <h2 id="cfgThankYouBig">Thank you!</h2>
+    </div>
+  </section>
+
+</div><!-- /page-wrap -->
+
+<!-- ============ POPUP CẢM ƠN ============ -->
+<div class="popup-overlay" id="thankYouPopup">
+  <div class="popup-card">
+    <button class="popup-close" id="popupCloseBtn">&times;</button>
+    <div class="popup-img"><img id="cfgPopupBg" alt="" loading="lazy"></div>
+    <div class="popup-text">
+      <p id="cfgPopupTitle">Cảm ơn bạn đã dành thời gian phản hồi</p>
+      <p id="cfgPopupSub">Thank you!</p>
+    </div>
+  </div>
+</div>
+
+<!-- ============ NÚT NHẠC ============ -->
+<button id="music-toggle" type="button" aria-label="Bật/tắt nhạc" title="Bật nhạc" aria-pressed="false">
+  <svg id="music-icon" viewBox="0 0 64 64" fill="currentColor" aria-hidden="true">
+    <path d="M42 9.5c1.2-.35 2.4.55 2.4 1.8v27.15c0 5.15-4.35 9.35-9.7 9.35-4.65 0-8.4-3.1-8.4-6.95s3.75-6.95 8.4-6.95c1.75 0 3.4.45 4.75 1.25V21.2l-18.9 5.35v19.1c0 5.15-4.35 9.35-9.7 9.35-4.65 0-8.4-3.1-8.4-6.95s3.75-6.95 8.4-6.95c1.75 0 3.4.45 4.75 1.25V20.3c0-1.05.7-2 1.7-2.3L42 9.5Z"></path>
+    <path d="M51.7 18.2c1.1-2 4-2 5.1 0 .65 1.2.45 2.7-.55 3.7l-4.55 4.45-4.55-4.45c-1-.95-1.2-2.5-.55-3.7 1.1-2 4-2 5.1 0Z" opacity="0.9"></path>
+  </svg>
+  <span id="music-slash"></span>
+</button>
+
+<script>
+(function(){
+  var CFG = window.CONFIG;
+
+  // ---------- 0. cá nhân hoá theo link (mỗi khách 1 link riêng) ----------
+  // Link dạng: index.html?ten=Nguy%E1%BB%85n%20V%C4%83n%20A&gio=10%3A45%2C%20Th%E1%BB%A9%20B%E1%BA%A3y
+  // Dùng trang tao-link.html đi kèm để tự sinh hàng loạt link kiểu này, không cần tự ghép tay.
+  // Nếu link không có ?ten=/&gio= thì trang vẫn hiển thị đúng giá trị mặc định trong CONFIG như bình thường.
+  function escapeHtml_(s){
+    return String(s).replace(/[&<>"']/g, function(c){
+      return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c];
+    });
+  }
+
+  // ---------- 0b. tự nhận diện link Google Drive (ảnh/nhạc) ----------
+  // Link "Chia sẻ" bạn copy từ Drive (vd: drive.google.com/file/d/XXXX/view?usp=sharing)
+  // không dùng trực tiếp làm link ảnh/nhạc được — cần đổi sang link tải trực tiếp.
+  // Các hàm dưới đây tự nhận diện và đổi giúp, để bạn dán link Drive bình thường vào CONFIG là chạy được luôn.
+  function extractDriveId_(url){
+    if (!url || !/drive\.google\.com|docs\.google\.com/.test(url)) return null;
+    var m = url.match(/(?:\/file\/d\/|[?&]id=)([a-zA-Z0-9_-]{10,})/);
+    return m ? m[1] : null;
+  }
+  function normalizeImageUrl_(url){
+    var id = extractDriveId_(url);
+    return id ? ('https://lh3.googleusercontent.com/d/' + id) : url;
+  }
+  function normalizeAudioUrl_(url){
+    var id = extractDriveId_(url);
+    // Lưu ý: Google Drive không phải dịch vụ host nhạc chuyên dụng — link dạng này vẫn có thể
+    // bị lỗi/giật khi có nhiều người mở cùng lúc (xem mục 6 trong HUONG_DAN.md để biết cách khác ổn định hơn).
+    return id ? ('https://drive.google.com/uc?export=download&id=' + id) : url;
+  }
+
+  try {
+    var qp = new URLSearchParams(location.search);
+    var qTen = qp.get('ten');
+    var qGio = qp.get('gio');
+    if (qTen) CFG.texts.guestScriptName = escapeHtml_(qTen);
+    if (qGio) CFG.texts.time = escapeHtml_(qGio);
+    // điền sẵn tên khách vào ô "Tên của bạn" trong form RSVP (khách vẫn sửa được nếu muốn)
+    if (qTen) {
+      var rsvpNameInput = document.getElementById('rsvpName');
+      if (rsvpNameInput) rsvpNameInput.value = qTen;
+    }
+  } catch (err) { console.debug('Đọc tham số link cá nhân hoá lỗi:', err); }
+
+  // ---------- 1. áp CONFIG.texts vào DOM ----------
+  function setText(id, val){ var el=document.getElementById(id); if(el && val!=null) el.innerHTML = val; }
+  var t = CFG.texts;
+  document.title = t.pageTitle || document.title;
+  setText('cfgBadgeLine1', t.badgeLine1);
+  setText('cfgBadgeLine2', t.badgeLine2);
+  setText('cfgHeroLine1', t.heroLine1);
+  setText('cfgHeroLine2', t.heroLine2);
+  function setTextOrHide(id, val){
+    var el = document.getElementById(id);
+    if (!el) return;
+    if (val){ el.innerHTML = val; el.style.display = ''; }
+    else { el.style.display = 'none'; }
+  }
+  setTextOrHide('cfgSchoolLine1', t.schoolNameLine1);
+  setTextOrHide('cfgSchoolLine2', t.schoolNameLine2);
+  setTextOrHide('cfgSchoolLine3', t.schoolNameLine3);
+
+  setText('cfgScriptName', t.guestScriptName);
+  setText('cfgGreeting', t.greeting);
+  setText('cfgDay', t.day);
+  setText('cfgMonth', t.month);
+  setText('cfgYear', t.year);
+  setText('cfgTime', t.time);
+  setText('cfgLocLabel', t.locationLabel);
+  setText('cfgLocName', t.locationName);
+  setText('cfgLocAddress', t.locationAddress);
+  setText('cfgDirectionText', t.directionButtonText);
+  setText('cfgSectionTitle1', t.sectionTitle1);
+  setText('cfgSectionTitle2', t.sectionTitle2);
+  setText('cfgQuote', t.quote);
+  setText('cfgQuoteSignature', t.quoteSignature);
+  setText('cfgTagline', t.sectionTagline);
+  setText('cfgRsvpPrompt', t.rsvpPrompt);
+  setText('cfgThankYouBig', t.thankYouBig);
+  setText('cfgPopupTitle', t.popupTitle);
+  setText('cfgPopupSub', t.popupSub);
+
+  var mapLink = document.getElementById('cfgMapLink');
+  if (mapLink) mapLink.href = (CFG.location && CFG.location.mapUrl) || '#';
+
+  // ---------- 2. áp ảnh đơn ----------
+  function setImg(id, url){
+    var el=document.getElementById(id);
+    if(!el || !url) return;
+    el.src = normalizeImageUrl_(url);
+    el.onerror = function(){
+      console.warn('Không tải được ảnh — kiểm tra lại link (có thể chưa để chế độ "Bất kỳ ai có đường liên kết"):', url);
+    };
+  }
+  var im = CFG.images;
+
+  (function schoolLogoBlock(){
+    var wrap = document.getElementById('schoolLogoWrap');
+    if (!wrap) return;
+    var hasLogo = !!im.schoolLogo;
+    var hasName = !!(t.schoolNameLine1 || t.schoolNameLine2 || t.schoolNameLine3);
+    if (hasLogo) setImg('cfgSchoolLogo', im.schoolLogo);
+    else wrap.classList.add('no-logo-img');
+    if (!hasName) wrap.classList.add('no-name');
+    if (!hasLogo && !hasName) wrap.style.display = 'none';
+  })();
+
+  setImg('cfgHeroPhoto', im.heroPortrait);
+  setImg('cfgWidePhoto', im.wideBanner);
+  setImg('cfgThankYouBg', im.thankYouBg);
+  setImg('cfgPopupBg', im.popupBg);
+
+  // ---------- 3. reveal on scroll ----------
+  var io = ('IntersectionObserver' in window) ? new IntersectionObserver(function(entries){
+    entries.forEach(function(entry){
+      if (entry.isIntersecting){
+        entry.target.classList.add('in-view');
+        io.unobserve(entry.target);
+      }
+    });
+  }, {threshold:0.15}) : null;
+
+  function observeReveal(el){
+    if (io) io.observe(el);
+    else el.classList.add('in-view');
+  }
+  document.querySelectorAll('.reveal').forEach(observeReveal);
+
+  // ---------- 4. hoa trang trí rơi nhẹ (thay cho animation Spine gốc) ----------
+  (function petals(){
+    if (!CFG.decor || !CFG.decor.enablePetals) return;
+    var host = document.getElementById('petalsHost');
+    if (!host) return;
+    var emoji = CFG.decor.petalEmoji || '🌸';
+    var count = 10;
+    for (var i=0;i<count;i++){
+      (function(i){
+        var span = document.createElement('span');
+        span.className = 'petal';
+        span.textContent = emoji;
+        span.style.left = (Math.random()*90 + 3) + '%';
+        span.style.setProperty('--drift', (Math.random()*60-30)+'px');
+        span.style.animationDuration = (7 + Math.random()*6) + 's';
+        span.style.animationDelay = (Math.random()*8) + 's';
+        span.style.fontSize = (14 + Math.random()*10) + 'px';
+        host.appendChild(span);
+      })(i);
+    }
+  })();
+
+  // ---------- 5. nhạc nền ----------
+  (function musicPlayer(){
+    var list = (CFG.music && CFG.music.tracks || []).filter(Boolean).map(normalizeAudioUrl_);
+    var toggleBtn = document.getElementById('music-toggle');
+    if (!list.length){ toggleBtn.classList.add('hidden'); return; }
+
+    var index = 0;
+    var audio = new Audio(list[index]);
+    audio.preload = 'auto';
+    audio.volume = (CFG.music.volume != null) ? CFG.music.volume : 0.6;
+    audio.loop = list.length === 1;
+    var musicStarted = false, isPlaying = false;
+
+    function updateIcon(){
+      toggleBtn.classList.toggle('playing', isPlaying);
+      toggleBtn.setAttribute('aria-pressed', isPlaying ? 'true':'false');
+      toggleBtn.title = isPlaying ? 'Tắt nhạc' : 'Bật nhạc';
+    }
+    function safePlay(){
+      return audio.play().then(function(){
+        musicStarted = true; isPlaying = true; updateIcon(); removeAutoplayEvents();
+      }).catch(function(err){ console.debug('Audio play blocked:', err); });
+    }
+    function pauseMusic(){ audio.pause(); isPlaying = false; updateIcon(); }
+    function nextMusic(){
+      if (list.length <= 1) return;
+      index = (index+1) % list.length; audio.src = list[index]; safePlay();
+    }
+    audio.addEventListener('ended', nextMusic);
+    audio.addEventListener('error', function(){
+      console.warn('Không tải được nhạc — kiểm tra lại link nhạc (nếu dùng Google Drive, xem mục 6 trong HUONG_DAN.md):', list[index]);
+    });
+
+    function startOnGesture(e){
+      if (musicStarted) return;
+      if (e && toggleBtn.contains(e.target)) return;
+      safePlay();
+    }
+    function addAutoplayEvents(){
+      ['wheel','scroll','mousemove','touchstart','touchmove'].forEach(function(ev){
+        document.addEventListener(ev, startOnGesture, {passive:true});
+      });
+    }
+    function removeAutoplayEvents(){
+      ['wheel','scroll','mousemove','touchstart','touchmove'].forEach(function(ev){
+        document.removeEventListener(ev, startOnGesture);
+      });
+    }
+    toggleBtn.addEventListener('click', function(e){
+      e.preventDefault(); e.stopPropagation();
+      isPlaying ? pauseMusic() : safePlay();
+    });
+    addAutoplayEvents();
+    updateIcon();
+  })();
+
+  // ---------- 6. RSVP form ----------
+  (function rsvp(){
+    var form = document.getElementById('rsvpForm');
+    var submitBtn = document.getElementById('rsvpSubmitBtn');
+    var note = document.getElementById('rsvpNote');
+    var popup = document.getElementById('thankYouPopup');
+    var scriptUrl = (CFG.rsvp && CFG.rsvp.scriptUrl) || '';
+
+    if (!scriptUrl) note.style.display = 'block';
+
+    form.addEventListener('submit', function(e){
+      e.preventDefault();
+      if (!scriptUrl){
+        note.style.display = 'block';
+        note.textContent = 'Chưa cấu hình RSVP — xem HUONG_DAN.md để bật tính năng ghi nhận phản hồi.';
+        return;
+      }
+      var payload = {
+        name: document.getElementById('rsvpName').value.trim(),
+        attendance: document.getElementById('rsvpAttendance').value,
+        message: document.getElementById('rsvpMessage').value.trim(),
+        time: new Date().toISOString(),
+        page: location.href
+      };
+      submitBtn.disabled = true;
+      submitBtn.textContent = 'ĐANG GỬI...';
+
+      // Gửi ngầm (không chờ phản hồi — mode:'no-cors' khiến trình duyệt luôn trả về
+      // kết quả "opaque" nên không thể đọc được, và nếu mạng chậm/treo cũng không
+      // được để màn hình "Đang gửi..." bị kẹt lại vô thời hạn).
+      try {
+        fetch(scriptUrl, {
+          method: 'POST',
+          mode: 'no-cors',
+          headers: {'Content-Type':'text/plain;charset=utf-8'},
+          body: JSON.stringify(payload)
+        }).catch(function(err){ console.debug('RSVP submit error (bỏ qua vì no-cors):', err); });
+      } catch (err) {
+        console.debug('RSVP submit error:', err);
+      }
+
+      setTimeout(function(){
+        submitBtn.disabled = false;
+        submitBtn.textContent = 'XÁC NHẬN';
+        form.reset();
+        popup.classList.add('show');
+      }, 700);
+    });
+
+    document.getElementById('popupCloseBtn').addEventListener('click', function(){
+      popup.classList.remove('show');
+    });
+    popup.addEventListener('click', function(e){
+      if (e.target === popup) popup.classList.remove('show');
+    });
+  })();
+
+})();
+</script>
+</body>
+</html>
